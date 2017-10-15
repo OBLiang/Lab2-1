@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="helloworld" extends="struts-default">
+
+        <action name="FindByAuthors"
+                class="Lab2.FindByAuthor"
+                method="execute">
+            <result name="success">BaseListFBA.jsp</result>
+            <result name="error">index.jsp</result>
+            <result name="none">none.html</result>
+            <result name="empty">FindByAuthor.jsp</result>
+        </action>
+        
+        <action name="Info"
+                class="Lab2.Detail"
+                method="execute">
+            <result name="success">DetailInfo.jsp</result>
+            <result name="empty">none.html</result>
+        </action>
+
+        <action name="Del"
+                class="Lab2.Delete"
+                method="execute">
+            <result name="success" type="redirect">/FindByAuthors?AuthorID=AllAuthor</result>
+        </action>
+
+        <action name="Up"
+                class="Lab2.update"
+                method="execute1">
+            <result name="success">Update.jsp</result>
+        </action>
+
+        <action name="update"
+                class="Lab2.update"
+                method="execute2">
+            <result name="success" type="redirect">/FindByAuthors?AuthorID=AllAuthor</result>
+        </action>
+
+        <action name="AddNew"
+                class="Lab2.AddNew"
+                method="exectue1">
+            <result name="case1" type="redirect">/FindByAuthors?AuthorID=AllAuthor</result>
+            <result name="case2">New2.jsp</result>
+            <result name="ex">index.jsp</result>
+            <result name="case3">none.html</result>
+        </action>
+
+        <action name="NewAu"
+                class="Lab2.AddNew"
+                method="exectue2">
+            <result name="case1" type="redirect">/FindByAuthors?AuthorID=AllAuthor</result>
+
+        </action>
+    </package>
+</struts>
